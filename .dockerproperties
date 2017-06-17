@@ -1,0 +1,4 @@
+DOCKER_REGISTRY=registry.service.drive-now.com
+DOCKER_OWNER=durian
+DOCKER_IMAGE1=durian
+FOLDER_NAME=durian

@@ -1,0 +1,9 @@
+/utils/validation.js
+/utils/libphonenumber.js
+node_modules/**
+/assets/js/media.match.min.js
+/components/shared/Olark.js
+/test/components/modules/buttons/RegistrationButton-test.js
+/build/**
+/components/icons/**
+backstop_data/**
