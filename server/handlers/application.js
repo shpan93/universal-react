@@ -6,11 +6,15 @@ import getEntry from '../../shared/EntryComponent';
 import Html from '../../shared/components/Html';
 import configureStore from '../../redux/configureStore';
 import getRoutes from '../../routes/routes';
+import client from '../../configs/apollo';
+import { renderToStringWithData } from 'react-apollo';
+
 
 export default function createHandler() {
   return (req, res) => {
     const memoryHistory = createMemoryHistory(req.originalUrl);
-    const { store, history } = configureStore(memoryHistory);
+
+    const { store, history } = configureStore(memoryHistory, client);
 
     match({
       history,
@@ -22,12 +26,19 @@ export default function createHandler() {
       } else if (error) {
         res.send(error);
       } else if (renderProps) {
-        const html = ReactDOM.renderToStaticMarkup(
+        const HtmlComponent = (
           <Html store={store}>
-            {getEntry(true, store, renderProps)}
-          </Html>,
-          );
-        res.status(200).type('html').send(`<!DOCTYPE html>${html}`);
+          {getEntry(true, client, store, renderProps)}
+          </Html>
+        );
+        renderToStringWithData(HtmlComponent)
+          .then((html) => {
+          console.log(html)
+            res.status(200).type('html').send(`<!DOCTYPE html>${html}`);
+          })
+          .catch((apolloError) => {
+            console.error(apolloError);
+          });
       } else {
         res.status(404).send('not found');
       }

@@ -6,7 +6,7 @@ import MainPage from '../shared/pages/MainPage';
 export default function getRoutes() {
   return (
     <Route name="Root" path="/" component={Root}>
-      <IndexRoute component={MainPage} />
+      <Route path=":post" component={MainPage} />
     </Route>
   );
 }

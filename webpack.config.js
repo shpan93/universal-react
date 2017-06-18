@@ -9,7 +9,7 @@ const basicEntry = [
 ];
 
 module.exports = {
-  devtool: 'eval',
+  devtool: 'source-map',
   entry: {
     default: basicEntry.concat(['./client.js']),
   },

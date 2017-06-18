@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
 import thunk from 'redux-thunk';
-import reducer from './reducer';
+import getReducer from './reducer';
 
-export default function configureStore(baseHistory, initialState = {}) {
+export default function configureStore(baseHistory, client, initialState = {}) {
   const routingMiddleware = routerMiddleware(baseHistory);
   const middleware = applyMiddleware(routingMiddleware, thunk);
   const composeEnhancers =
@@ -12,9 +12,9 @@ export default function configureStore(baseHistory, initialState = {}) {
       window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
         // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
       }) : compose;
-  const store = createStore(reducer, initialState, compose(
+  const store = createStore(getReducer(client), initialState, composeEnhancers(
     middleware,
-      composeEnhancers,
+      // composeEnhancers,
   ));
   const history = syncHistoryWithStore(baseHistory, store);
   if (module.hot) {

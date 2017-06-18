@@ -3,6 +3,7 @@ require('babel-polyfill');
 const debug = require('debug')('server');
 const http = require('http');
 const app = require('./server/main').default;
+const fetch = require('node-fetch');
 
 const port = process.env.PORT || 8080;
 const server = http.createServer(app);

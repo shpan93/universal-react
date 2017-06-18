@@ -17,7 +17,7 @@ function renderCss() {
   return null;
 }
 
-export default class Html extends React.PureComponent {
+export default class Html extends React.Component {
   static propTypes = {
     children: React.PropTypes.any,
     store: React.PropTypes.object,
