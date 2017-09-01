@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom/server';
 import serialize from 'serialize-javascript';
 
@@ -19,8 +20,8 @@ function renderCss() {
 
 export default class Html extends React.PureComponent {
   static propTypes = {
-    children: React.PropTypes.any,
-    store: React.PropTypes.object,
+    children: PropTypes.any,
+    store: PropTypes.object,
   };
 
   render() {

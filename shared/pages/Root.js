@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class Root extends React.PureComponent {
   static propTypes = {
-    children: React.PropTypes.any,
+    children: PropTypes.any,
   };
 
   static defaultProps = {
