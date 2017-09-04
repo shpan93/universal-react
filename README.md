@@ -1,7 +1,1 @@
-# Cv-manager
-
-# install:
-npm i
-
-# start:
-npm run dev
+# Universal react boilerplate
