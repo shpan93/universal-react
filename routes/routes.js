@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import Root from '../shared/pages/Root';
-import MainPage from '../shared/pages/MainPage';
+import Root from '../components/pages/Root';
+import MainPage from '../components/pages/MainPage';
 
 export default function getRoutes() {
   return (

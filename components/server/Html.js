@@ -1,11 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom/server';
+import PropTypes from 'prop-types';
 import serialize from 'serialize-javascript';
 
-function renderJs(area = 'default') {
+function renderJs() {
   return (
-    <script type="text/javascript" src={`/public/js/${area}-main.js`} />
+    <script type="text/javascript" src={'/public/js/default-main.js'} />
   );
 }
 function renderCss() {
@@ -20,8 +20,12 @@ function renderCss() {
 
 export default class Html extends React.PureComponent {
   static propTypes = {
-    children: PropTypes.any,
-    store: PropTypes.object,
+    store: PropTypes.object.isRequired,
+    children: PropTypes.element,
+  };
+
+  static defaultProps = {
+    children: null,
   };
 
   render() {

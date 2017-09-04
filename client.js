@@ -1,7 +1,7 @@
-// import React from 'react';
+import React from 'react';
 import { render } from 'react-dom';
 import { browserHistory, match } from 'react-router';
-import getEntry from './shared/EntryComponent';
+import Root from './components/Root';
 import configureStore from './redux/configureStore';
 import getRoutes from './routes/routes';
 import './sass/common.scss';
@@ -12,7 +12,7 @@ match({
   routes: getRoutes(store),
 }, (error, redirectLocation, renderProps) => {
   render(
-    getEntry(false, store, renderProps)
+    <Root store={store} renderProps={renderProps} />
     , document.getElementById('app'));
 });
 
