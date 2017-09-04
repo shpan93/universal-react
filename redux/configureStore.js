@@ -14,7 +14,6 @@ export default function configureStore(baseHistory, initialState = {}) {
       }) : compose;
   const store = createStore(reducer, initialState, compose(
     middleware,
-      composeEnhancers,
   ));
   const history = syncHistoryWithStore(baseHistory, store);
   if (module.hot) {
