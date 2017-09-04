@@ -13,8 +13,13 @@
     "lint-fix": "eslint ./ --ext .js --fix",
     "deploy": "gh-pages -d public",
     "relay": "relay-compiler --src ./src --schema path/schema.graphql",
-    "start": "NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production node server.js",
+    "stylelint": "stylelint \"sass/**/*.scss\" --syntax scss; exit 0"
   },
+  "pre-push": [
+    "lint",
+    "stylelint"
+  ],
   "repository": {
     "type": "git",
     "url": ""
@@ -34,7 +39,7 @@
     "axios": "^0.15.3",
     "babel-core": "^6.7.7",
     "babel-eslint": "^7.1.1",
-    "babel-loader": "^6.2.4",
+    "babel-loader": "^7.1.2",
     "babel-polyfill": "^6.23.0",
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
@@ -44,6 +49,7 @@
     "express-basic-auth": "^1.1.1",
     "global": "^4.3.2",
     "npm-run-all": "^4.0.2",
+    "prop-types": "^15.5.10",
     "react": "15.3.1",
     "react-dom": "15.3.1",
     "react-redux": "^4.4.5",
@@ -54,8 +60,9 @@
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.1.0",
     "serialize-javascript": "^1.3.0",
-    "webpack": "2.3.2",
-    "webpack-dev-server": "2.4.2"
+    "stylelint-scss": "^2.1.0",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.2",
@@ -71,15 +78,18 @@
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.1.0",
-    "extract-text-webpack-plugin": "2.0.0",
+    "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.10.1",
-    "node-sass": "^4.5.2",
+    "node-sass": "^4.5.3",
     "nodemon": "^1.11.0",
-    "open-browser-webpack-plugin": "0.0.3",
+    "open-browser-webpack-plugin": "^0.0.5",
     "postcss-loader": "1.3.3",
+    "pre-push": "^0.1.1",
     "react-hot-loader": "^1.3.0",
     "relay-compiler": "^1.0.0",
-    "sass-loader": "^3.2.0",
-    "style-loader": "0.16.1"
+    "sass-loader": "^6.0.6",
+    "style-loader": "0.16.1",
+    "stylelint": "^8.1.0",
+    "stylelint-config-standard": "^17.0.0"
   }
 }

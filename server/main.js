@@ -6,18 +6,16 @@ import basicAuth from 'express-basic-auth';
 import applicationHandler from './handlers/application';
 
 const server = express();
-
-console.log(path.join(__dirname, '/../assets'));
-console.log(path.join(__dirname, '../public'));
 server.use(bodyParser.json({ limit: '5000mb', uploadDir: './uploads' }));
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(cookieParser());
 server.use('/assets', express.static(path.join(__dirname, '/../assets')));
 server.use('/public', express.static(path.join(__dirname, '../public')));
-server.use('/', applicationHandler());
+server.use('/', applicationHandler);
 server.use(basicAuth({
   users: { admin: 'admin' },
   challenge: true,
   realm: 'Imb4T3st4pp',
 }));
+
 export default server;

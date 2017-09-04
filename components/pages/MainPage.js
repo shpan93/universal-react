@@ -7,7 +7,7 @@ class MainPage extends React.PureComponent {
   render() {
     return (
       <div>
-        hello world
+        hello worldxxc dd dsds                222222dś1ßš
       </div>
     );
   }
